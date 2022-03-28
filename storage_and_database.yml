@@ -1,0 +1,68 @@
+#Hunter Long
+#mia014
+#CS4843-001
+#March 27th, 2022
+#Assignment 2
+Description: 
+    This YAML file adds an ec2 instance with a mysql server 
+    installed to each private subnet in the network that is 
+    setup using the two YAML files provided in class.
+Parameters:
+    KeyName:
+        Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
+        Type: 'AWS::EC2::KeyPair::KeyName'
+        ConstraintDescription: must be the name of an existing EC2 KeyPair.
+    AMItoUse:
+        Description: AMI to use for our base image
+        Type: String
+    EnvironmentName:
+        Description: Name of the environment to be prefixed to resource
+        Type: String
+Resources:
+  databaseInstanceOne: 
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      ImageId: !Ref AMItoUse
+      NetworkInterfaces:
+      - AssociatePublicIpAddress: "true"
+        DeviceIndex: "0"
+        SubnetId: 
+              Fn::ImportValue: !Sub "${EnvironmentName}-PRI1-SN"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          yum install -y mariadb-server
+          systemctl start mariadb
+  databaseInstanceTwo: 
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      ImageId: !Ref AMItoUse
+      NetworkInterfaces:
+      - AssociatePublicIpAddress: "true"
+        DeviceIndex: "0"
+        SubnetId: 
+              Fn::ImportValue: !Sub "${EnvironmentName}-PRI2-SN"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          yum install -y mariadb-server
+          systemctl start mariadb
+Outputs:
+  databaseInstanceOneID:
+    Description: InstanceId of the first EC2 instance
+    Value: !Ref databaseInstanceOne
+  databaseInstanceOneIPAddress:
+    Description: Private IP address of the first EC2 instance
+    Value: !GetAtt databaseInstanceOne.PrivateIp
+  databaseInstanceTwoID:
+    Description: InstanceId of the second EC2 instance
+    Value: !Ref databaseInstanceTwo
+  databaseInstanceTwoIPAddress:
+    Description: Private IP address of the second EC2 instance
+    Value: !GetAtt databaseInstanceTwo.PrivateIp

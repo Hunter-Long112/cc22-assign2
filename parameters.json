@@ -1,0 +1,14 @@
+[
+    {
+        "ParameterKey": "KeyName",
+        "ParameterValue": "sample_ec2"
+    },
+    {
+        "ParameterKey": "AMItoUse",
+        "ParameterValue": "ami-01c2d4b9337f863fa"
+    },    
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "ScalableWebSRVProject"
+    }
+]
