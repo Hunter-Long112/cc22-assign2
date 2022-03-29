@@ -9,8 +9,4 @@ I will update this read me in the near future with a detailed explanation on how
 through the infrastructure to show that everything is set up the way it should be. I will also upload the diagram of the architecture
 soon.
 
-<object data="https://github.com/Hunter-Long112/cc22-assign2/blob/main/cc22_assign2_diagram.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/Hunter-Long112/cc22-assign2/blob/main/cc22_assign2_diagram.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+![alt text](https://github.com/Hunter-Long112/cc22-assign2/blob/main/cc22_assign2_diagram_1.png?raw=true)
