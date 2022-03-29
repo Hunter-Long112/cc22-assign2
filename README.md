@@ -8,3 +8,9 @@ for this assignmnet. The storage and database yaml I wrote, to add the two mySQL
 I will update this read me in the near future with a detailed explanation on how I finished this assignment, and a bit of exploriation
 through the infrastructure to show that everything is set up the way it should be. I will also upload the diagram of the architecture
 soon.
+
+<object data="cc22_assign2_diagram.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="./cc22_assign2_diagram.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
