@@ -29,7 +29,7 @@ and then ssh into the ec2 instances in the private subnets (the web servers).
 
 # Improvements/Things I Need To Figure Out:
 + One imporvement I'd like to make to the git repo is to include screen shots of the 'validaiton' I was doing where I cross check ARNs and such to make
-  sure that everything is being deployed to where it should be, but to be honest I don't know what is ok share publicly.
+  sure that everything is being deployed to where it should be, but to be honest I don't know what is ok to share publicly.
 + Also, I don't think I'm deploying the database servers correctly because I could use the jump host that I manually set up in the public subnet to 
   ssh into the ec2 instance in the private subnet that is acting as a web server, but not the ec2 instance that is acting as a database. I tried 
   sshing into the web server then the database from there, and sshing straight into the database host from the jump box but neither worked. I'd like to
